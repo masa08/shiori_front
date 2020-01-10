@@ -10,15 +10,19 @@
         lazy-validation
       >
         <v-text-field
+          v-model="name"
+          label="Name"
+          required
+        ></v-text-field>
+        <v-text-field
           v-model="email"
           :rules="emailRules"
           label="E-mail"
           required
         ></v-text-field>
-
         <v-text-field
-          v-model="name"
-          :rules="nameRules"
+          v-model="password"
+          :rules="passwordRules"
           label="Password"
           required
         ></v-text-field>
@@ -26,6 +30,7 @@
           :disabled="!valid"
           color="success"
           class="mr-4"
+          v-on:click="handleSubmit"
         >
           新規登録
         </v-btn>
@@ -37,13 +42,16 @@
 </template>
 
 <script>
+  import axios from 'axios';
+
   export default {
     data: () => ({
-      valid: true,
       name: '',
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+      valid: true,
+      password: '',
+      passwordRules: [
+        v => !!v || 'Password is required',
+        v => (v && v.length >= 6) || 'Name must be more than 6 characters',
       ],
       email: '',
       emailRules: [
@@ -51,5 +59,26 @@
         v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
       ],
     }),
+    methods: {
+      handleSubmit() {
+        const name = this.name;
+        const email = this.email;
+        const password = this.password;
+        const url = "http://127.0.0.1:8000/api/register";
+        const params = new FormData();
+        params.append('name', name);
+        params.append('email', email);
+        params.append('password', password);
+
+        axios
+          .post(url, params)
+          .then((res) => {
+            alert(res);
+          })
+          .catch((err) => {
+            alert(err);
+          })
+      }
+    }
   }
 </script>
