@@ -73,7 +73,7 @@
         axios
           .post(url, params)
           .then((res) => {
-            alert(res);
+            alert(JSON.stringify(res));
           })
           .catch((err) => {
             alert(err);
