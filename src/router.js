@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import HomePage from './components/pages/HomePage'
 import RegisterPage from './components/pages/RegisterPage'
 import LoginPage from './components/pages/LoginPage'
+import UserPage from './components/pages/UserPage'
 
 import Store from './store/index';
 
@@ -35,6 +36,11 @@ const router =  new Router({
       meta: {
         isPublic: true
       }
+    },
+    {
+      path: '/user/:user_id',
+      name: 'UserPage',
+      component: UserPage,
     }
   ]
 })

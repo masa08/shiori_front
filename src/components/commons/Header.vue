@@ -9,6 +9,15 @@
 
     <v-spacer></v-spacer>
     <div class="login" v-if="this.$store.state.token">
+      <!-- TODO: userのidをstoreに保存する -->
+      <router-link to="/user/2">
+        <v-btn
+          target="_blank"
+          text
+        >
+          <span class="mr-2">マイページ</span>
+        </v-btn>
+      </router-link>
       <v-btn
         target="_blank"
         text
