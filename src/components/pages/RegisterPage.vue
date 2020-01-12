@@ -30,7 +30,7 @@
           :disabled="!valid"
           color="success"
           class="mr-4"
-          v-on:click="handleSubmit"
+          v-on:click="signUp"
         >
           新規登録
         </v-btn>
@@ -60,7 +60,7 @@
       ],
     }),
     methods: {
-      handleSubmit() {
+      signUp() {
         const name = this.name;
         const email = this.email;
         const password = this.password;
@@ -73,7 +73,9 @@
         axios
           .post(url, params)
           .then((res) => {
-            alert(JSON.stringify(res));
+            const token = JSON.stringify(res.data.token);
+            this.$store.commit('setToken', token);
+            alert(this.$store.state.token);
           })
           .catch((err) => {
             alert(err);

@@ -66,7 +66,9 @@
         axios
           .post(url, params)
           .then((res) => {
-            alert(JSON.stringify(res));
+            const token = JSON.stringify(res.data.token);
+            this.$store.commit('setToken', token);
+            alert(this.$store.state.token);
           })
           .catch((err) => {
             alert(err);

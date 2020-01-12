@@ -8,22 +8,33 @@
     </div>
 
     <v-spacer></v-spacer>
-    <router-link to="/login">
+    <div class="login" v-if="this.$store.state.token">
       <v-btn
         target="_blank"
         text
+        v-on:click="logout"
       >
-        <span class="mr-2">ログイン</span>
+        <span class="mr-2">ログアウト</span>
       </v-btn>
-    </router-link>
-    <router-link to="/register">
-      <v-btn
-        target="_blank"
-        text
-      >
-        <span class="mr-2">新規登録</span>
-      </v-btn>
-    </router-link>
+    </div>
+    <div v-else>
+      <router-link to="/login">
+        <v-btn
+          target="_blank"
+          text
+        >
+          <span class="mr-2">ログイン</span>
+        </v-btn>
+      </router-link>
+      <router-link to="/register">
+        <v-btn
+          target="_blank"
+          text
+        >
+          <span class="mr-2">新規登録</span>
+        </v-btn>
+      </router-link>
+    </div>
   </v-app-bar>
 </template>
 
@@ -34,5 +45,13 @@ export default {
   data: () => ({
 
   }),
+
+  methods: {
+    logout() {
+      alert(this.$store.state.token)
+      this.$store.commit('deleteToken');
+      alert(this.$store.state.token);
+    },
+  }
 }
 </script>
