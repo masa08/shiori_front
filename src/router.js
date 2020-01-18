@@ -5,6 +5,7 @@ import HomePage from './components/pages/HomePage'
 import RegisterPage from './components/pages/RegisterPage'
 import LoginPage from './components/pages/LoginPage'
 import UserPage from './components/pages/UserPage'
+import SearchPage from './components/pages/SearchPage'
 
 import Store from './store/index';
 
@@ -41,6 +42,11 @@ const router =  new Router({
       path: '/user/:user_id',
       name: 'UserPage',
       component: UserPage,
+    },
+    {
+      path: '/search',
+      name: 'SearchPage',
+      component: SearchPage,
     }
   ]
 })

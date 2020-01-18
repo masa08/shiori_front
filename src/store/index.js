@@ -6,6 +6,8 @@ Vue.use(Vuex);
 
 const initialState = {
   token: "",
+  searchResult: [],
+  books: [],
 };
 
 export default new Vuex.Store({
@@ -16,6 +18,13 @@ export default new Vuex.Store({
     },
     deleteToken(state) {
       state.token = "";
+    },
+    setSearchResult(state, result) {
+      state.searchResult = [];
+      state.searchResult.push(result);
+    },
+    getSearchResult(state) {
+      return state.searchResult[0]
     }
   },
   plugins: [createPersistedState()]

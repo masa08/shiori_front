@@ -37,21 +37,21 @@ export default {
     items: [
       {
         color: '#1F7087',
-        src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
+        mediumImageUrl: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
         title: 'Supermodel',
-        artist: 'Foster the People',
+        author: 'Foster the People',
       },
       {
         color: '#952175',
-        src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+        mediumImageUrl: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
         title: 'Halcyon Days',
-        artist: 'Ellie Goulding',
+        author: 'Ellie Goulding',
       },
       {
         color: '#385F73',
-        src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+        mediumImageUrl: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
         title: 'Halcyon Days',
-        artist: 'Ellie Goulding',
+        author: 'Ellie Goulding',
       },
     ],
   }),
