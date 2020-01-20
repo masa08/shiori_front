@@ -40,6 +40,7 @@ export default {
   methods: {
     handleSubmit() {
       const keyword = this.keyword;
+      // TODO: 環境変数に移す
       const applicationId = "1077558744200188165"
       const rakutenApi = `https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404
                           ?format=json
@@ -49,7 +50,7 @@ export default {
           .get(rakutenApi)
           .then((res) => {
             const result = res.data;
-            this.$store.commit('setSearchResult', result);
+            // this.$store.commit('setSearchResult', result);
             this.books = [];
             result.Items.map((book) => {
               this.books.push(book.Item);

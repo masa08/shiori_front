@@ -8,6 +8,7 @@ const initialState = {
   token: "",
   searchResult: [],
   books: [],
+  user: [],
 };
 
 export default new Vuex.Store({
@@ -19,12 +20,21 @@ export default new Vuex.Store({
     deleteToken(state) {
       state.token = "";
     },
+    setUser(state, user) {
+      state.user = [];
+      state.user.push(user);
+    },
     setSearchResult(state, result) {
       state.searchResult = [];
       state.searchResult.push(result);
     },
-    getSearchResult(state) {
-      return state.searchResult[0]
+  },
+  computed: {
+    getUser() {
+      return this.store.state.user;
+    },
+    getSearchResult() {
+      return this.store.state.searchResult;
     }
   },
   plugins: [createPersistedState()]

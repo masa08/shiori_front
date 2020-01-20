@@ -58,6 +58,7 @@
       handleSubmit() {
         const email = this.email;
         const password = this.password;
+        // TODO: 環境変数に保存する
         const url = "http://127.0.0.1:8000/api/login";
         const params = new FormData();
         params.append('email', email);
@@ -67,8 +68,9 @@
           .post(url, params)
           .then((res) => {
             const token = JSON.stringify(res.data.token);
+            const user = res.data.user;
             this.$store.commit('setToken', token);
-            alert(this.$store.state.token);
+            this.$store.commit('setUser', user);
           })
           .catch((err) => {
             alert(err);
