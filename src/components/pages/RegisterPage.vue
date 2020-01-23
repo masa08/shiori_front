@@ -77,6 +77,7 @@
             const user = res.data.user;
             this.$store.commit('setToken', token);
             this.$store.commit('setUser', user);
+            window.location.href = "http://127.0.0.1:8080/"
           })
           .catch((err) => {
             alert(err);
