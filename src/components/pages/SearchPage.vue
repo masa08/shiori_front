@@ -19,7 +19,6 @@
     <v-col cols="3"></v-col>
     <v-col>
       <Lists :items="books" />
-      {{ books }}
     </v-col>
   </v-row>
 </v-container>

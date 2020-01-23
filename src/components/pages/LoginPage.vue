@@ -67,7 +67,8 @@
         axios
           .post(url, params)
           .then((res) => {
-            const token = JSON.stringify(res.data.token);
+            const token = res.data.token;
+            alert(token);
             const user = res.data.user;
             this.$store.commit('setToken', token);
             this.$store.commit('setUser', user);

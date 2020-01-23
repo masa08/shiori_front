@@ -2,7 +2,6 @@
   <v-container>
     <v-row>
       <v-col>
-        {{user}}
         <h1>Userpage</h1>
         <p>name: {{ user[0].name }}</p>
         <h2>投稿一覧</h2>
@@ -49,6 +48,7 @@
 <script>
 import axios from 'axios';
 import camelcaseKeys from 'camelcase-keys';
+import ShowSentence from '../organisms/ShowSentence'
 
 export default {
   name: 'UserPage',
@@ -56,6 +56,9 @@ export default {
     user: [],
     sentences: [],
   }),
+  components: {
+    ShowSentence
+  },
   computed: {
       getUser() {
         return this.$store.getters.getUser
@@ -73,7 +76,7 @@ export default {
           alert(err);
         });
 
-        const sentenceUrl = "http://127.0.0.1:8000/api/sentence";
+        const sentenceUrl = `http://127.0.0.1:8000/api/sentence?user_id=${user_id}`;
 
         axios.get(sentenceUrl)
         .then((res) => {
