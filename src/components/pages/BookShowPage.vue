@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center">
+    <div class="text-center">
     <v-dialog
       v-model="dialog"
       width="800"
@@ -66,51 +66,16 @@
             text
             @click="handleSubmit"
           >
-            新規登録
+            詳細
           </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
   </div>
 </template>
-<script>
-  import axios from 'axios';
 
-  export default {
-    name: 'RegisterSentence',
-    data: () => ({
-        sentence: '',
-        dialog: false,
-    }),
-    props: ['item'],
-    computed: {
-      user() {
-        return this.$store.getters.getUser
-      }
-    },
-    methods: {
-      handleSubmit() {
-        const url = "http://127.0.0.1:8000/api/sentence";
-        const params = new FormData();
-        const user = this.user[0];
-        params.append('user_id', user.id);
-        params.append('title', this.item.title);
-        params.append('isbn', this.item.isbn);
-        params.append('author', this.item.author);
-        params.append('publisherName', this.item.publisherName);
-        params.append('itemCaption', this.item.itemCaption);
-        params.append('salesDate', this.item.salesDate);
-        params.append('largeImageUrl', this.item.largeImageUrl);
-        params.append('sentence', this.sentence);
-        axios.post(url, params)
-          .then((res) => {
-            alert(JSON.stringify(res.data))
-            this.dialog = false;
-          })
-          .catch((err) => {
-            alert(err);
-          });
-      }
-    }
-  }
+<script>
+export default {
+  
+}
 </script>

@@ -14,7 +14,7 @@
             <router-link to="/register">
               <Button class="main-image__btn" title="メールアドレスで登録" btnColor="success" />
             </router-link>
-            <Button class="main-image__btn" title="Twitterで登録" btnColor="primary" />
+            <!-- <Button class="main-image__btn" title="Twitterで登録" btnColor="primary" /> -->
           </div>
           <div class="main-image__login">
             <h2>ログイン</h2>

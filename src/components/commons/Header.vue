@@ -56,18 +56,30 @@
 </template>
 
 <script>
+// import axios from 'axios';
+
 export default {
   name: 'Header',
 
   data: () => ({
 
   }),
-
   methods: {
     logout() {
-      alert(this.$store.state.token)
       this.$store.commit('deleteToken');
-      alert(this.$store.state.token);
+      // TODO: LOGOUTの実装
+    //   const url = "http://127.0.0.1:8000/api/logout";
+    //   const token = this.$store.state.token;
+    //   const params = new FormData();
+    //   params.append('token', token);
+
+    //   axios.get(url, params)
+    //       .then((res) => {
+    //         alert(res)
+    //       })
+    //       .catch((err) => {
+    //         alert(err);
+    //       });
     },
   }
 }

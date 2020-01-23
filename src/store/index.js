@@ -4,17 +4,15 @@ import createPersistedState from "vuex-persistedstate";
 
 Vue.use(Vuex);
 
-const initialState = {
+const state = {
   token: "",
   searchResult: [],
   books: [],
   user: [],
 };
 
-export default new Vuex.Store({
-  state: initialState,
-  mutations: {
-    setToken(state, token) {
+const mutations = {
+  setToken(state, token) {
       state.token = token;
     },
     deleteToken(state) {
@@ -28,14 +26,20 @@ export default new Vuex.Store({
       state.searchResult = [];
       state.searchResult.push(result);
     },
-  },
-  computed: {
-    getUser() {
-      return this.store.state.user;
+}
+
+const getters = {
+  getUser(state) {
+      return state.user;
     },
-    getSearchResult() {
-      return this.store.state.searchResult;
+    getSearchResult(state) {
+      return state.searchResult;
     }
-  },
+}
+
+export default new Vuex.Store({
+  state,
+  mutations,
+  getters,
   plugins: [createPersistedState()]
 });

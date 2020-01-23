@@ -17,7 +17,7 @@
         size="75"
         tile
       >
-        <v-img :src="item.mediumImageUrl"></v-img>
+        <v-img :src="item.largeImageUrl"></v-img>
       </v-avatar>
     </div>
   </v-card>
