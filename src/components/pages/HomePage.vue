@@ -65,8 +65,8 @@ import camelcaseKeys from 'camelcase-keys';
 import MainImage from '../organisms/MainImage'
 import Lists from '../organisms/Lists'
 import ShowSentence from '../organisms/ShowSentence'
-const bookUrl = "http://127.0.0.1:8000/api/book";
-const sentenceUrl = "http://127.0.0.1:8000/api/sentence";
+const bookUrl = process.env.VUE_APP_HOST + "/api/book";
+const sentenceUrl = process.env.VUE_APP_HOST + "/api/sentence";
 
 export default {
   name: 'HomePage',

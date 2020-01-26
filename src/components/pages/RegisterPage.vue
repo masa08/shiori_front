@@ -64,7 +64,7 @@
         const name = this.name;
         const email = this.email;
         const password = this.password;
-        const url = "http://127.0.0.1:8000/api/register";
+        const url = process.env.VUE_APP_HOST + "/api/register";
         const params = new FormData();
         params.append('name', name);
         params.append('email', email);
@@ -77,7 +77,7 @@
             const user = res.data.user;
             this.$store.commit('setToken', token);
             this.$store.commit('setUser', user);
-            window.location.href = "http://127.0.0.1:8080/"
+            window.location.href = process.env.VUE_APP_FRONT
           })
           .catch((err) => {
             alert(err);

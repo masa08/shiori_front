@@ -59,7 +59,7 @@
         const email = this.email;
         const password = this.password;
         // TODO: 環境変数に保存する
-        const url = "http://127.0.0.1:8000/api/login";
+        const url = process.env.VUE_APP_HOST + "/api/login";
         const params = new FormData();
         params.append('email', email);
         params.append('password', password);
@@ -71,7 +71,7 @@
             const user = res.data.user;
             this.$store.commit('setToken', token);
             this.$store.commit('setUser', user);
-            window.location.href = "http://127.0.0.1:8080/"
+            window.location.href = process.env.VUE_APP_FRONT
           })
           .catch((err) => {
             alert(err);

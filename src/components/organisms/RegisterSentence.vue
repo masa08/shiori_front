@@ -90,7 +90,7 @@
     },
     methods: {
       handleSubmit() {
-        const url = "http://127.0.0.1:8000/api/sentence";
+        const url = process.env.VUE_APP_HOST + "/api/sentence";
         const params = new FormData();
         const user = this.user[0];
         params.append('user_id', user.id);

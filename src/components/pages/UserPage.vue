@@ -66,7 +66,7 @@ export default {
     },
   mounted () {
       const user_id = this.getUser[0].id;
-      const url = `http://127.0.0.1:8000/api/users/${user_id}`;
+      const url = process.env.VUE_APP_HOST + `/api/users/${user_id}`;
       axios.get(url)
         .then((res) => {
           const result = camelcaseKeys(res.data.user)
@@ -76,7 +76,7 @@ export default {
           alert(err);
         });
 
-        const sentenceUrl = `http://127.0.0.1:8000/api/sentence?user_id=${user_id}`;
+        const sentenceUrl = process.env.VUE_APP_HOST + `/api/sentence?user_id=${user_id}`;
 
         axios.get(sentenceUrl)
         .then((res) => {
