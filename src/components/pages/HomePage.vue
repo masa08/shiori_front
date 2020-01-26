@@ -3,7 +3,7 @@
     <MainImage />
     <v-container>
       <div class="count-numbers">
-        <span>{{ sentences[0].length }}件の文章が登録されています。</span>
+        <span>{{ sentences.length }}件の文章が登録されています。</span>
       </div>
       <v-row>
         <v-col>
@@ -11,7 +11,7 @@
           <v-container>
             <v-row dense>
               <v-col
-                v-for="(sentence, i) in sentences[0]"
+                v-for="(sentence, i) in sentences"
                 :key="i"
                 cols="12"
               >
@@ -43,7 +43,7 @@
         </v-col>
         <v-col>
           <div class="">人気の本</div>
-          <Lists :items="books[0]" />
+          <Lists :items="books" />
         </v-col>
         <!-- TODO: お気に入り実装後に実装 -->
         <!-- <v-col>
@@ -83,7 +83,7 @@ export default {
     axios.get(bookUrl)
         .then((res) => {
           const result = camelcaseKeys(res.data.books)
-          this.books.push(result);
+          this.books = result;
         })
         .catch((err) => {
           alert(err);
@@ -92,7 +92,7 @@ export default {
     axios.get(sentenceUrl)
         .then((res) => {
           const result = camelcaseKeys(res.data.sentences)
-          this.sentences.push(result);
+          this.sentences = result;
         })
         .catch((err) => {
           alert(err);

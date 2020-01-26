@@ -3,14 +3,14 @@
     <v-row>
       <v-col>
         <h1>Userpage</h1>
-        <p>name: {{ user[0].name }}</p>
+        <p>name: {{ user.name }}</p>
         <h2>投稿一覧</h2>
         <v-col>
           <div class="">新着の文章</div>
           <v-container>
             <v-row dense>
               <v-col
-                v-for="(sentence, i) in sentences[0]"
+                v-for="(sentence, i) in sentences"
                 :key="i"
                 cols="12"
               >
@@ -53,8 +53,8 @@ import ShowSentence from '../organisms/ShowSentence'
 export default {
   name: 'UserPage',
   data: () => ({
-    user: [],
-    sentences: [],
+    user: {},
+    sentences: {},
   }),
   components: {
     ShowSentence
@@ -70,7 +70,7 @@ export default {
       axios.get(url)
         .then((res) => {
           const result = camelcaseKeys(res.data.user)
-          this.user.push(result);
+          this.user = result;
         })
         .catch((err) => {
           alert(err);
@@ -81,7 +81,7 @@ export default {
         axios.get(sentenceUrl)
         .then((res) => {
           const result = camelcaseKeys(res.data.sentences)
-          this.sentences.push(result);
+          this.sentences = result;
         })
         .catch((err) => {
           alert(err);
