@@ -54,10 +54,10 @@
             <h2>SHIORIとは</h2>
             <p>SHIORIとは、文章ベースで読書記録をすることができる、新感覚の読書記録サービスです。</p>
           </v-col>
-          <v-col cols="12">
+          <v-col>
             <h2>SHIORIの楽しみ方</h2>
             <v-row>
-              <v-col cols="4">
+              <v-col lg="4" sm="12">
               <v-card
                 class="mx-auto"
                 max-width="400"
@@ -74,7 +74,7 @@
                 </v-card-text>
               </v-card>
             </v-col>
-            <v-col cols="4">
+            <v-col lg="4" sm="12">
               <v-card
                 class="mx-auto"
                 max-width="400"
@@ -91,7 +91,7 @@
                 </v-card-text>
               </v-card>
             </v-col>
-            <v-col cols="4">
+            <v-col lg="4" sm="12">
               <v-card
                 class="mx-auto"
                 max-width="400"
