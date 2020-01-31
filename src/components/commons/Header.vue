@@ -4,7 +4,7 @@
     color="#fff"
   >
     <div class="d-flex align-center">
-      <h1><router-link to="/">SHIORI</router-link></h1>
+      <h1><router-link to="/" style="color:#18bc9c;">SHIORI</router-link></h1>
     </div>
 
     <v-spacer></v-spacer>
