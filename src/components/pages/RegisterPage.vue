@@ -50,7 +50,7 @@
       name: '',
       valid: true,
       nameRules: [
-        v => !!v || 'E-mail is required',
+        v => !!v || 'name is required',
       ],
       password: '',
       passwordRules: [
@@ -84,7 +84,7 @@
             window.location.href = process.env.VUE_APP_FRONT
           })
           .catch((err) => {
-            alert(err);
+            alert(err + ": すでに登録されているメールアドレスです");
           })
       }
     }
