@@ -11,6 +11,7 @@
       >
         <v-text-field
           v-model="name"
+          :rules="nameRules"
           label="Name"
           required
         ></v-text-field>
@@ -48,6 +49,9 @@
     data: () => ({
       name: '',
       valid: true,
+      nameRules: [
+        v => !!v || 'E-mail is required',
+      ],
       password: '',
       passwordRules: [
         v => !!v || 'Password is required',
