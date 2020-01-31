@@ -5,56 +5,113 @@
       <div class="count-numbers">
         <span>{{ sentences.length }}件の文章が登録されています。</span>
       </div>
-      <v-row>
-        <v-col>
-          <div class="">新着の文章</div>
-          <v-container>
-            <v-row dense>
-              <v-col
-                v-for="(sentence, i) in sentences"
-                :key="i"
-                cols="12"
-              >
-                <v-card>
-                  <div class="d-flex flex-no-wrap justify-space-between">
-                    <div>
-                      <v-card-title
-                        class="headline"
-                        v-text="sentence.sentence"
-                      ></v-card-title>
-                      <v-card-subtitle v-text="sentence.book.title"></v-card-subtitle>
-                      <v-card-actions>
-                        <ShowSentence :item="sentence" />
-                      </v-card-actions>
-                    </div>
+      <div v-if="this.$store.state.token">
+        <v-row>
+          <v-col>
+            <div class="">新着の文章</div>
+            <v-container>
+              <v-row dense>
+                <v-col
+                  v-for="(sentence, i) in sentences"
+                  :key="i"
+                  cols="12"
+                >
+                  <v-card>
+                    <div class="d-flex flex-no-wrap justify-space-between">
+                      <div>
+                        <v-card-title
+                          class="headline"
+                          v-text="sentence.sentence"
+                        ></v-card-title>
+                        <v-card-subtitle v-text="sentence.book.title"></v-card-subtitle>
+                        <v-card-actions>
+                          <ShowSentence :item="sentence" />
+                        </v-card-actions>
+                      </div>
 
-                    <v-avatar
-                      class="ma-3"
-                      size="75"
-                      tile
-                    >
-                      <v-img :src="sentence.book.large_image_url"></v-img>
-                    </v-avatar>
-                  </div>
-                </v-card>
-              </v-col>
+                      <v-avatar
+                        class="ma-3"
+                        size="75"
+                        tile
+                      >
+                        <v-img :src="sentence.book.large_image_url"></v-img>
+                      </v-avatar>
+                    </div>
+                  </v-card>
+                </v-col>
+              </v-row>
+            </v-container>
+          </v-col>
+          <v-col>
+            <div class="">人気の本</div>
+            <Lists :items="books" />
+          </v-col>
+        </v-row>
+      </div>
+      <div v-else>
+        <v-row>
+          <v-col cols="12">
+            <h2>SHIORIとは</h2>
+            <p>SHIORIとは、文章ベースで読書記録をすることができる、新感覚の読書記録サービスです。</p>
+          </v-col>
+          <v-col cols="12">
+            <h2>SHIORIの楽しみ方</h2>
+            <v-row>
+              <v-col cols="4">
+              <v-card
+                class="mx-auto"
+                max-width="400"
+              >
+                <v-img
+                  class="white--text align-end"
+                  height="200px"
+                  src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+                >
+                  <v-card-title>文章を登録する</v-card-title>
+                </v-img>
+                <v-card-text class="text--primary">
+                  <div>本を読んでいて、心に響いた文章を登録しよう！</div>
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col cols="4">
+              <v-card
+                class="mx-auto"
+                max-width="400"
+              >
+                <v-img
+                  class="white--text align-end"
+                  height="200px"
+                  src="https://images.unsplash.com/photo-1551643556-0e32e30fc8e9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+                >
+                  <v-card-title>お気に入りの文章を保存する(開発中)</v-card-title>
+                </v-img>
+                <v-card-text class="text--primary">
+                  <div>他のユーザーの心に響いた文章をお気に入りしよう！</div>
+                </v-card-text>
+              </v-card>
+            </v-col>
+            <v-col cols="4">
+              <v-card
+                class="mx-auto"
+                max-width="400"
+              >
+                <v-img
+                  class="white--text align-end"
+                  height="200px"
+                  src="https://images.unsplash.com/photo-1531537571171-a707bf2683da?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80"
+                >
+                  <v-card-title>文章について議論する(開発中)</v-card-title>
+                </v-img>
+                <v-card-text class="text--primary">
+                  <div>ユーザー同士で登録した文章について議論しよう！</div>
+                </v-card-text>
+              </v-card>
+            </v-col>
             </v-row>
-          </v-container>
-        </v-col>
-        <v-col>
-          <div class="">人気の本</div>
-          <Lists :items="books" />
-        </v-col>
-        <!-- TODO: お気に入り実装後に実装 -->
-        <!-- <v-col>
-          <div class="">文章ランキング</div>
-          <Lists :items="items" />
-        </v-col>
-        <v-col>
-          <div class="">本ランキング</div>
-          <Lists :items="items" />
-        </v-col> -->
-      </v-row>
+          </v-col>
+        </v-row>
+      </div>
     </v-container>
   </div>
 </template>

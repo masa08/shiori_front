@@ -1,7 +1,6 @@
 <template>
   <div class="main-image">
     <v-container>
-      <div v-if="this.$store.state.token">
         <v-row>
           <v-col class="main-image__left" cols="12">
             <div class="main-image__message">
@@ -10,27 +9,22 @@
             </div>
           </v-col>
         </v-row>
-      </div>
+      <div v-if="this.$store.state.token"></div>
       <div v-else>
         <v-row>
-          <v-col class="main-image__left" cols="9">
-            <div class="main-image__message">
-              <h2>SHIORI</h2>
-              <p>心に響く文章と出会う場所</p>
-            </div>
-          </v-col>
-          <v-col class="main-image__right" cols="3">
+          <v-col class="main-image__right" cols="6">
             <div class="main-image__register">
               <h2>新規登録</h2>
               <router-link to="/register">
-                <Button class="main-image__btn" title="メールアドレスで登録" btnColor="success" />
+                <Button class="main-image__btn" title="新規登録" btnColor="success" />
               </router-link>
-              <!-- <Button class="main-image__btn" title="Twitterで登録" btnColor="primary" /> -->
             </div>
+          </v-col>
+          <v-col class="main-image__right" cols="6">
             <div class="main-image__login">
               <h2>ログイン</h2>
               <router-link to="/login">
-                <Button class="main-image__btn" title="ログインはこちら" btnColor="" />
+                <Button class="main-image__btn" title="ログイン" btnColor="" />
               </router-link>
             </div>
           </v-col>
