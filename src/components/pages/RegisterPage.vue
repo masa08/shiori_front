@@ -23,6 +23,7 @@
         ></v-text-field>
         <v-text-field
           v-model="password"
+          type="password"
           :rules="passwordRules"
           label="Password"
           required
@@ -53,6 +54,7 @@
         v => !!v || 'name is required',
       ],
       password: '',
+      show1: false,
       passwordRules: [
         v => !!v || 'Password is required',
         v => (v && v.length >= 6) || 'Name must be more than 6 characters',
