@@ -103,12 +103,13 @@
         params.append('largeImageUrl', this.item.largeImageUrl);
         params.append('sentence', this.sentence);
         axios.post(url, params)
-          .then((res) => {
-            alert(JSON.stringify(res.data))
+          .then(() => {
+            alert("文章の登録に成功しました。マイページに遷移します。")
             this.dialog = false;
+            window.location.href = process.env.VUE_APP_FRONT + "/user/" + user.id
           })
-          .catch((err) => {
-            alert(err);
+          .catch(() => {
+            alert("必要項目を全て埋めてください。");
           });
       }
     }
