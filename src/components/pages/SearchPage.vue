@@ -5,7 +5,7 @@
     <v-col cols="6">
       <v-text-field
         v-model="keyword"
-        label="検索"
+        label="本のタイトルを入力してください"
         required
       ></v-text-field>
       <v-btn
