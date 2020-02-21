@@ -14,10 +14,9 @@
           target="_blank"
           text
         >
-          <span class="mr-2">検索</span>
+          <span class="mr-2">本を検索</span>
         </v-btn>
       </router-link>
-      <!-- TODO: userのidをstoreに保存する -->
       <router-link to="/user/2">
         <v-btn
           target="_blank"
