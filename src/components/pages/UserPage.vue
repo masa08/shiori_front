@@ -2,8 +2,8 @@
   <v-container>
     <v-row>
       <v-col>
-        <h1>Userpage</h1>
-        <p>name: {{ user.name }}</p>
+        <h1>マイページ</h1>
+        <p>名前: {{ user.name }}</p>
         <h2>投稿一覧</h2>
         <v-col>
           <div class="">新着の文章</div>

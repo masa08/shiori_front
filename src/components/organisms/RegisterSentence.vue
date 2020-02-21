@@ -54,7 +54,6 @@
             label="文章"
             required
           ></v-text-field>
-          {{ sentence }}
         </v-card-text>
 
         <v-divider></v-divider>
