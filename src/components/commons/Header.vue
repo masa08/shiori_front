@@ -55,7 +55,7 @@
 </template>
 
 <script>
-// import axios from 'axios';
+import axios from 'axios';
 
 export default {
   name: 'Header',
@@ -65,21 +65,19 @@ export default {
   }),
   methods: {
     logout() {
-      this.$store.commit('deleteToken');
-      window.location.href = process.env.VUE_APP_FRONT
-      // const url = process.env.VUE_APP_HOST + "/api/logout";
-      // const token = this.$store.state.token;
-      // const params = new FormData();
-      // params.append('token', token);
+      const url = process.env.VUE_APP_HOST + "/api/logout";
+      const token = this.$store.state.token;
+      const params = new FormData();
+      params.append('token', token);
 
-      // axios.post(url, params)
-      //     .then((res) => {
-      //       alert(JSON.stringify(res.data));
-      //       this.$store.commit('deleteToken');
-      //     })
-      //     .catch((err) => {
-      //       alert(err);
-      //     });
+      axios.post(url, params)
+          .then(() => {
+              this.$store.commit('deleteToken');
+              window.location.href = process.env.VUE_APP_FRONT
+          })
+          .catch((err) => {
+            alert(err);
+          });
     },
   }
 }

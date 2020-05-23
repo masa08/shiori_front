@@ -59,7 +59,6 @@
       handleSubmit() {
         const email = this.email;
         const password = this.password;
-        // TODO: 環境変数に保存する
         const url = process.env.VUE_APP_HOST + "/api/login";
         const params = new FormData();
         params.append('email', email);
