@@ -11,7 +11,6 @@
           <RegisterSentence :item="item" />
         </v-card-actions>
       </div>
-
       <v-avatar
         class="ma-3"
         size="75"

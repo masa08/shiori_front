@@ -6,7 +6,6 @@
     <div class="d-flex align-center">
       <h1><router-link to="/" style="color:#18bc9c;">SHIORI</router-link></h1>
     </div>
-
     <v-spacer></v-spacer>
     <div class="login" v-if="this.$store.state.token">
       <router-link to="/search">

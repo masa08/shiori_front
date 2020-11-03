@@ -13,7 +13,6 @@
           もっとみる
         </v-btn>
       </template>
-
       <v-card>
         <v-card-title
           class="headline grey lighten-2"
@@ -21,7 +20,6 @@
         >
           {{ item.sentence }}
         </v-card-title>
-
         <v-card-text>
           <v-container>
             <v-row>
@@ -42,7 +40,6 @@
                 <p>{{ item.book.item_caption }}</p>
                 <h3>発売日</h3>
                 <p>{{ item.book.sales_date }}</p>
-                <!-- {{ item }} -->
               </v-col>
               <v-col cols="1"></v-col>
             </v-row>
@@ -52,6 +49,7 @@
     </v-dialog>
   </div>
 </template>
+
 <script>
   export default {
     name: 'ShowSentence',

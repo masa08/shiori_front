@@ -12,7 +12,3 @@ export default {
   props: ['title', 'btnColor'],
 }
 </script>
-
-<style>
-
-</style>

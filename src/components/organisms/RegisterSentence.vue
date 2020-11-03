@@ -13,7 +13,6 @@
           新規登録
         </v-btn>
       </template>
-
       <v-card>
         <v-card-title
           class="headline grey lighten-2"
@@ -21,7 +20,6 @@
         >
           {{ item.title }}
         </v-card-title>
-
         <v-card-text>
           <v-container>
             <v-row>
@@ -46,7 +44,6 @@
             </v-row>
           </v-container>
         </v-card-text>
-
         <v-card-text>
           <p>登録したい文章を記入してください。</p>
           <v-text-field
@@ -55,9 +52,7 @@
             required
           ></v-text-field>
         </v-card-text>
-
         <v-divider></v-divider>
-
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
@@ -72,6 +67,7 @@
     </v-dialog>
   </div>
 </template>
+
 <script>
   import axios from 'axios';
 

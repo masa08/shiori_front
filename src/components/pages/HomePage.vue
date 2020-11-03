@@ -28,7 +28,6 @@
                           <ShowSentence :item="sentence" />
                         </v-card-actions>
                       </div>
-
                       <v-avatar
                         class="ma-3"
                         size="75"
@@ -165,6 +164,5 @@ export default {
     color: #fff;
     padding: 20px;
     margin-bottom: 20px;
-
   }
 </style>

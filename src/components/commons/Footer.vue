@@ -8,8 +8,7 @@
     </v-col>
   </v-footer>
 </template>
+
 <script>
-export default {
-  
-}
+export default {}
 </script>

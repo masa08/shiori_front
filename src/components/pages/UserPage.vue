@@ -67,6 +67,8 @@ export default {
   mounted () {
       const user_id = this.getUser[0].id;
       const url = process.env.VUE_APP_HOST + `/api/users/${user_id}`;
+      const sentenceUrl = process.env.VUE_APP_HOST + `/api/sentence?user_id=${user_id}`;
+
       axios.get(url)
         .then((res) => {
           const result = camelcaseKeys(res.data.user)
@@ -75,8 +77,6 @@ export default {
         .catch((err) => {
           alert(err);
         });
-
-        const sentenceUrl = process.env.VUE_APP_HOST + `/api/sentence?user_id=${user_id}`;
 
         axios.get(sentenceUrl)
         .then((res) => {

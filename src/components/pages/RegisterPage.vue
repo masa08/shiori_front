@@ -54,10 +54,9 @@
         v => !!v || 'name is required',
       ],
       password: '',
-      show1: false,
       passwordRules: [
         v => !!v || 'Password is required',
-        v => (v && v.length >= 6) || 'Name must be more than 6 characters',
+        v => (v && v.length >= 6) || 'Password must be more than 6 characters',
       ],
       email: '',
       emailRules: [
