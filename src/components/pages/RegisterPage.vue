@@ -85,7 +85,7 @@
             window.location.href = process.env.VUE_APP_FRONT
           })
           .catch((err) => {
-            alert(err + ": すでに登録されているメールアドレスです");
+            alert(err);
           })
       }
     }
