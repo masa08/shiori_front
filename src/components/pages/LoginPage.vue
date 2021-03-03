@@ -38,7 +38,7 @@
 </template>
 
 <script>
-  import axios from 'axios';
+  import firebase from 'firebase';
 
   export default {
     data: () => ({
@@ -55,26 +55,11 @@
       ],
     }),
     methods: {
-      handleSubmit() {
-        const email = this.email;
-        const password = this.password;
-        const url = process.env.VUE_APP_HOST + "/api/login";
-        const params = new FormData();
-        params.append('email', email);
-        params.append('password', password);
-
-        axios
-          .post(url, params)
-          .then((res) => {
-            const token = res.data.token;
-            const user = res.data.user;
-            this.$store.commit('setToken', token);
-            this.$store.commit('setUser', user);
-            window.location.href = process.env.VUE_APP_FRONT
-          })
-          .catch((err) => {
-            alert(err);
-          })
+      async handleSubmit() {
+        const result = await firebase.auth().signInWithEmailAndPassword(this.email, this.password);
+        const token  = await result.user.getIdToken();
+        this.$store.commit('setToken', token);
+        window.location.href = process.env.VUE_APP_FRONT;
       }
     }
   }

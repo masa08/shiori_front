@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import firebase from 'firebase';
 
 export default {
   name: 'Header',
@@ -63,20 +63,10 @@ export default {
 
   }),
   methods: {
-    logout() {
-      const url = process.env.VUE_APP_HOST + "/api/logout";
-      const token = this.$store.state.token;
-      const params = new FormData();
-      params.append('token', token);
-
-      axios.post(url, params)
-          .then(() => {
-              this.$store.commit('deleteToken');
-              window.location.href = process.env.VUE_APP_FRONT
-          })
-          .catch((err) => {
-            alert(err);
-          });
+    async logout() {
+      await firebase.auth().signOut();
+      this.$store.commit('deleteToken');
+      window.location.href = process.env.VUE_APP_FRONT
     },
   }
 }
