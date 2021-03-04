@@ -24,10 +24,8 @@
           <v-container>
             <v-row>
               <v-col cols="1"></v-col>
-              <v-col cols="5">
+              <v-col cols="10">
                 <v-img :src="item.book.large_image_url" width="100%"></v-img>
-              </v-col>
-              <v-col cols="5">
                 <h3>文章</h3>
                 <p>{{ item.sentence }}</p>
                 <h3>タイトル</h3>
