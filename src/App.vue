@@ -1,16 +1,16 @@
 <template>
   <v-app>
     <Header />
-    <v-content>
+    <!-- <v-content>
       <router-view />
     </v-content>
-    <Footer />
+    <Footer /> -->
   </v-app>
 </template>
 
 <script>
 import Header from './components/commons/Header'
-import Footer from './components/commons/Footer'
+// import Footer from './components/commons/Footer'
 import firebase from 'firebase'
 import config from './plugins/firebase'
 
@@ -20,7 +20,7 @@ export default {
   name: 'App',
   components: {
     Header,
-    Footer,
+    // Footer,
   },
   data: () => ({}),
 };

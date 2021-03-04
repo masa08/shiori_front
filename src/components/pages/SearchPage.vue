@@ -40,9 +40,8 @@ export default {
   methods: {
     handleSubmit() {
       const keyword = this.keyword;
-      // TODO: 環境変数に移す
-      const applicationId = "1077558744200188165"
-      const rakutenApi = `https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404
+      const applicationId = process.env.RAKUTEN_KEY
+      const rakutenApi = `${process.env.RAKUTEN_HOST}
                           ?format=json
                           &title=${keyword}
                           &applicationId=${applicationId}`
