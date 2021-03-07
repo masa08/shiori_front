@@ -1,27 +1,16 @@
 <template>
-  <v-card
-    class="mx-auto overflow-hidden"
-    height="100%"
-    width="100%"
-  >
+  <div>
     <v-app-bar app color="#fff">
       <div class="d-flex align-center">
-        <h1><router-link to="/" style="color:#18bc9c;">SHIORI</router-link></h1>
+        <h1>
+          <router-link to="/" style="color: #18bc9c">SHIORI</router-link>
+        </h1>
       </div>
       <v-spacer></v-spacer>
-      <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-      temporary
-      right
-      fixed
-    >
-      <v-list
-        nav
-        dense
-      >
+    <v-navigation-drawer v-model="drawer" app temporary right fixed>
+      <v-list nav dense>
         <v-list-item-group v-model="group" v-if="this.$store.state.token">
           <v-list-item>
             <v-list-item-title>
@@ -71,39 +60,30 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-    <v-content>
-      <router-view />
-    </v-content>
-    <Footer />
-  </v-card>
+  </div>
 </template>
 
 <script>
-import firebase from 'firebase';
-import Footer from './Footer'
+import firebase from "firebase";
 
 export default {
-  name: 'Header',
-  components: {
-    // Header,
-    Footer,
-  },
+  name: "Header",
 
   data: () => ({
     drawer: false,
     group: null,
   }),
   watch: {
-    group () {
-      this.drawer = false
+    group() {
+      this.drawer = false;
     },
   },
   methods: {
     async logout() {
       await firebase.auth().signOut();
-      this.$store.commit('deleteToken');
-      window.location.href = process.env.VUE_APP_FRONT
+      this.$store.commit("deleteToken");
+      window.location.href = process.env.VUE_APP_FRONT;
     },
-  }
-}
+  },
+};
 </script>
