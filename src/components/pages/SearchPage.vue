@@ -25,40 +25,40 @@
 </template>
 
 <script>
-import axios from 'axios';
-import Lists from '../organisms/Lists'
+import axios from "axios";
+import Lists from "../organisms/Lists";
 
 export default {
-  name: 'SearchPage',
+  name: "SearchPage",
   components: {
     Lists,
   },
   data: () => ({
-    keyword: '',
+    keyword: "",
     books: [],
   }),
   methods: {
     handleSubmit() {
       const keyword = this.keyword;
-      const applicationId = process.env.RAKUTEN_KEY
+      const applicationId = process.env.RAKUTEN_KEY;
       const rakutenApi = `${process.env.RAKUTEN_HOST}
                           ?format=json
                           &title=${keyword}
-                          &applicationId=${applicationId}`
+                          &applicationId=${applicationId}`;
 
       axios
-          .get(rakutenApi)
-          .then((res) => {
-            const result = res.data;
-            this.books = [];
-            result.Items.map((book) => {
-              this.books.push(book.Item);
-            })
-          })
-          .catch((err) => {
-            alert(err);
-          })
-    }
-  }
-}
+        .get(rakutenApi)
+        .then((res) => {
+          const result = res.data;
+          this.books = [];
+          result.Items.map((book) => {
+            this.books.push(book.Item);
+          });
+        })
+        .catch((err) => {
+          alert(err);
+        });
+    },
+  },
+};
 </script>

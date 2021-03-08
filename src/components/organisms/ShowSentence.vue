@@ -1,23 +1,11 @@
 <template>
   <div class="text-center">
-    <v-dialog
-      v-model="dialog"
-      width="800"
-    >
+    <v-dialog v-model="dialog" width="800">
       <template v-slot:activator="{ on }">
-        <v-btn
-          color="#18bc9c"
-          dark
-          v-on="on"
-        >
-          もっとみる
-        </v-btn>
+        <v-btn color="#18bc9c" dark v-on="on"> もっとみる </v-btn>
       </template>
       <v-card>
-        <v-card-title
-          class="headline grey lighten-2"
-          primary-title
-        >
+        <v-card-title class="headline grey lighten-2" primary-title>
           {{ item.sentence }}
         </v-card-title>
         <v-card-text>
@@ -49,11 +37,11 @@
 </template>
 
 <script>
-  export default {
-    name: 'ShowSentence',
-    data: () => ({
-        dialog: false,
-    }),
-    props: ['item'],
-  }
+export default {
+  name: "ShowSentence",
+  data: () => ({
+    dialog: false,
+  }),
+  props: ["item"],
+};
 </script>

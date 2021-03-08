@@ -5,5 +5,5 @@ export default {
   storageBucket: "shiori-f280a.appspot.com",
   messagingSenderId: "966280746139",
   appId: "1:966280746139:web:772e3139ea86dd2470a23e",
-  measurementId: "G-VSTDPR7FXV"
+  measurementId: "G-VSTDPR7FXV",
 };
