@@ -35,6 +35,7 @@
 
 <script>
 import firebase from "firebase";
+import axios from "axios";
 
 export default {
   data: () => ({
@@ -52,11 +53,20 @@ export default {
   }),
   methods: {
     async handleSubmit() {
+      const url = process.env.VUE_APP_HOST + "/api/login";
+      const params = new FormData();
+      params.append("email", this.email);
+      params.append("password", this.password);
+
       const result = await firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password);
       const token = await result.user.getIdToken();
       this.$store.commit("setToken", token);
+
+      const res = await axios.post(url, params);
+      this.$store.commit("setUser", res.data.user);
+
       window.location.href = process.env.VUE_APP_FRONT;
     },
   },

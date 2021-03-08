@@ -65,7 +65,7 @@ export default {
     handleSubmit() {
       const url = process.env.VUE_APP_HOST + "/api/sentence";
       const params = new FormData();
-      const user = this.user[0];
+      const user = this.user;
       params.append("user_id", user.id);
       params.append("title", this.item.title);
       params.append("isbn", this.item.isbn);

@@ -6,8 +6,7 @@ const mutations = {
     state.token = "";
   },
   setUser(state, user) {
-    state.user = [];
-    state.user.push(user);
+    state.user = user;
   },
   setSearchResult(state, result) {
     state.searchResult = [];

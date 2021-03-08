@@ -23,7 +23,12 @@
           </v-list-item>
           <v-list-item>
             <v-list-item-title>
-              <router-link to="/user/2">
+              <router-link
+                :to="{
+                  name: 'UserPage',
+                  params: { user_id: this.getUser.id },
+                }"
+              >
                 <v-btn target="_blank" text>
                   <span class="mr-2">マイページ</span>
                 </v-btn>
@@ -76,6 +81,11 @@ export default {
   watch: {
     group() {
       this.drawer = false;
+    },
+  },
+  computed: {
+    getUser() {
+      return this.$store.getters.getUser;
     },
   },
   methods: {

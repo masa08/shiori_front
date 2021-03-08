@@ -59,7 +59,7 @@ export default {
     },
   },
   mounted() {
-    const user_id = this.getUser[0].id;
+    const user_id = this.getUser.id;
     const url = process.env.VUE_APP_HOST + `/api/users/${user_id}`;
     const sentenceUrl =
       process.env.VUE_APP_HOST + `/api/sentence?user_id=${user_id}`;
