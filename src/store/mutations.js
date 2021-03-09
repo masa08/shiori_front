@@ -9,7 +9,6 @@ const mutations = {
     state.user = user;
   },
   setSearchResult(state, result) {
-    state.searchResult = [];
     state.searchResult.push(result);
   },
 };

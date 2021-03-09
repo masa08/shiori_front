@@ -62,7 +62,7 @@ export default {
     },
   },
   methods: {
-    handleSubmit() {
+    async handleSubmit() {
       const url = process.env.VUE_APP_HOST + "/api/sentence";
       const params = new FormData();
       const user = this.user;
@@ -75,16 +75,14 @@ export default {
       params.append("salesDate", this.item.salesDate);
       params.append("largeImageUrl", this.item.largeImageUrl);
       params.append("sentence", this.sentence);
-      axios
-        .post(url, params)
-        .then(() => {
-          alert("文章の登録に成功しました。マイページに遷移します。");
-          this.dialog = false;
-          window.location.href = process.env.VUE_APP_FRONT + "/user/" + user.id;
-        })
-        .catch(() => {
-          alert("必要項目を全て埋めてください。");
-        });
+
+      try {
+        const res = await axios.post(url, params);
+        this.dialog = false;
+        window.location.href = process.env.VUE_APP_FRONT + "/user/" + user.id;
+      } catch (e) {
+        alert("必要項目を全て埋めてください。");
+      }
     },
   },
 };

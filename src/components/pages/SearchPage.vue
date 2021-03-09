@@ -38,7 +38,7 @@ export default {
     books: [],
   }),
   methods: {
-    handleSubmit() {
+    async handleSubmit() {
       const keyword = this.keyword;
       const applicationId = process.env.VUE_APP_RAKUTEN_KEY;
       const rakutenApi = `${process.env.VUE_APP_RAKUTEN_HOST}
@@ -46,18 +46,15 @@ export default {
                           &title=${keyword}
                           &applicationId=${applicationId}`;
 
-      axios
-        .get(rakutenApi)
-        .then((res) => {
-          const result = res.data;
-          this.books = [];
-          result.Items.map((book) => {
-            this.books.push(book.Item);
-          });
-        })
-        .catch((err) => {
-          alert(err);
+      try {
+        const res = await axios.get(rakutenApi);
+        const books = res.data;
+        books.Items.map((book) => {
+          this.books.push(book.Item);
         });
+      } catch (e) {
+        alert(e);
+      }
     },
   },
 };

@@ -57,31 +57,27 @@ export default {
       return this.$store.getters.getUser;
     },
   },
-  mounted() {
+  async mounted() {
     const user_id = this.getUser.id;
     const url = process.env.VUE_APP_HOST + `/api/users/${user_id}`;
     const sentenceUrl =
       process.env.VUE_APP_HOST + `/api/sentence?user_id=${user_id}`;
 
-    axios
-      .get(url)
-      .then((res) => {
-        const result = camelcaseKeys(res.data.user);
-        this.user = result;
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    try {
+      const userRes = await axios.get(url);
+      const user = userRes.data.user;
+      this.user = user;
+    } catch (e) {
+      alert(e);
+    }
 
-    axios
-      .get(sentenceUrl)
-      .then((res) => {
-        const result = camelcaseKeys(res.data.sentences);
-        this.sentences = result;
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    try {
+      const sentenceRes = await axios.get(sentenceUrl);
+      const sentence = camelcaseKeys(sentenceRes.data.sentences);
+      this.sentences = sentence;
+    } catch (e) {
+      alert(e);
+    }
   },
 };
 </script>

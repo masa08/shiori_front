@@ -110,8 +110,6 @@ import camelcaseKeys from "camelcase-keys";
 import MainImage from "../organisms/MainImage";
 import Lists from "../organisms/Lists";
 import ShowSentence from "../organisms/ShowSentence";
-const bookUrl = process.env.VUE_APP_HOST + "/api/book";
-const sentenceUrl = process.env.VUE_APP_HOST + "/api/sentence";
 
 export default {
   name: "HomePage",
@@ -124,26 +122,25 @@ export default {
     books: [],
     sentences: [],
   }),
-  mounted() {
-    axios
-      .get(bookUrl)
-      .then((res) => {
-        const result = camelcaseKeys(res.data.books);
-        this.books = result;
-      })
-      .catch((err) => {
-        alert(err);
-      });
+  async mounted() {
+    const bookUrl = process.env.VUE_APP_HOST + "/api/book";
+    const sentenceUrl = process.env.VUE_APP_HOST + "/api/sentence";
 
-    axios
-      .get(sentenceUrl)
-      .then((res) => {
-        const result = camelcaseKeys(res.data.sentences);
-        this.sentences = result;
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    try {
+      const bookRes = await axios.get(bookUrl);
+      const books = camelcaseKeys(bookRes.data.books);
+      this.books = books;
+    } catch (e) {
+      alert(e);
+    }
+
+    try {
+      const sentenceRes = await axios.get(sentenceUrl);
+      const sentences = camelcaseKeys(sentenceRes.data.sentences);
+      this.sentences = sentences;
+    } catch (e) {
+      alert(e);
+    }
   },
 };
 </script>

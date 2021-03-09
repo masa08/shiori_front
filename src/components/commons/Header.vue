@@ -90,9 +90,13 @@ export default {
   },
   methods: {
     async logout() {
-      await firebase.auth().signOut();
-      this.$store.commit("deleteToken");
-      window.location.href = process.env.VUE_APP_FRONT;
+      try {
+        await firebase.auth().signOut();
+        this.$store.commit("deleteToken");
+        window.location.href = process.env.VUE_APP_FRONT;
+      } catch {
+        alert(e);
+      }
     },
   },
 };

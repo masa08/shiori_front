@@ -67,14 +67,22 @@ export default {
       params.append("email", this.email);
       params.append("password", this.password);
 
-      const result = await firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password);
-      const token = await result.user.getIdToken();
-      this.$store.commit("setToken", token);
+      try {
+        const result = await firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.email, this.password);
+        const token = await result.user.getIdToken();
+        this.$store.commit("setToken", token);
+      } catch (e) {
+        alert(e);
+      }
 
-      const res = await axios.post(url, params);
-      this.$store.commit("setUser", res);
+      try {
+        const res = await axios.post(url, params);
+        this.$store.commit("setUser", res.data.user);
+      } catch (e) {
+        alert(e);
+      }
 
       window.location.href = process.env.VUE_APP_FRONT;
     },

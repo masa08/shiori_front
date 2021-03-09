@@ -1,7 +1,7 @@
 const state = {
   token: "",
   searchResult: [],
-  user: [],
+  user: {},
 };
 
 export default state;
