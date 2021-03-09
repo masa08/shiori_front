@@ -1,24 +1,22 @@
-# shiori_front
+# 読書管理アプリ「SHIORI」
 
-## Project setup
-```
-yarn install
-```
+<img width="1440" alt="スクリーンショット 2021-03-09 20 49 50" src="https://user-images.githubusercontent.com/19849423/110466362-09972d00-8119-11eb-939d-d753b3f4f175.png">
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## 概要
 
-### Compiles and minifies for production
-```
-yarn build
-```
+SHIORI とは、文章ベースで読書記録をすることができる、新感覚の読書記録サービスです。
 
-### Lints and fixes files
-```
-yarn lint
-```
+## URL
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+https://shiori.netlify.app/
+
+## 環境
+
+- JavaScript
+- Vue@2.6.12
+- Vuetify
+- Vuex
+- Netlify
+- PHP@7.2
+- Laravel@6.2.0
+- Heroku
