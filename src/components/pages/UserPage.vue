@@ -24,7 +24,6 @@
                         <ShowSentence :item="sentence" />
                       </v-card-actions>
                     </div>
-
                     <v-avatar class="ma-3" size="75" tile>
                       <v-img :src="sentence.book.large_image_url"></v-img>
                     </v-avatar>

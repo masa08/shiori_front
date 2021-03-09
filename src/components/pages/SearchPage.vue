@@ -40,8 +40,8 @@ export default {
   methods: {
     handleSubmit() {
       const keyword = this.keyword;
-      const applicationId = process.env.RAKUTEN_KEY;
-      const rakutenApi = `${process.env.RAKUTEN_HOST}
+      const applicationId = process.env.VUE_APP_RAKUTEN_KEY;
+      const rakutenApi = `${process.env.VUE_APP_RAKUTEN_HOST}
                           ?format=json
                           &title=${keyword}
                           &applicationId=${applicationId}`;
