@@ -1,5 +1,5 @@
 const state = {
-  token: "",
+  token: '',
   searchResult: [],
   user: {},
 };

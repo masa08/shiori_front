@@ -38,10 +38,10 @@
 
 <script>
 export default {
-  name: "ShowSentence",
+  name: 'ShowSentence',
   data: () => ({
     dialog: false,
   }),
-  props: ["item"],
+  props: ['item'],
 };
 </script>

@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import Button from "../atoms/Button";
+import Button from '../atoms/Button';
 
 export default {
-  name: "MainImage",
+  name: 'MainImage',
   components: {
     Button,
   },
@@ -53,7 +53,7 @@ export default {
 <style>
 .main-image {
   display: block;
-  content: "";
+  content: '';
   clear: both;
 }
 
@@ -61,7 +61,7 @@ export default {
   position: relative;
   height: 300px;
   background-color: #18bc9c;
-  background-image: url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1441&q=80");
+  background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1441&q=80');
   background-size: cover;
 }
 

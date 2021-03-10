@@ -1,17 +1,17 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 
-import HomePage from './components/pages/HomePage'
-import RegisterPage from './components/pages/RegisterPage'
-import LoginPage from './components/pages/LoginPage'
-import UserPage from './components/pages/UserPage'
-import SearchPage from './components/pages/SearchPage'
+import HomePage from './components/pages/HomePage';
+import RegisterPage from './components/pages/RegisterPage';
+import LoginPage from './components/pages/LoginPage';
+import UserPage from './components/pages/UserPage';
+import SearchPage from './components/pages/SearchPage';
 
 import Store from './store/index';
 
-Vue.use(Router)
+Vue.use(Router);
 
-const router =  new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -19,24 +19,24 @@ const router =  new Router({
       name: 'Homepage',
       component: HomePage,
       meta: {
-        isPublic: true
-      }
+        isPublic: true,
+      },
     },
     {
       path: '/register',
       name: 'RegisterPage',
       component: RegisterPage,
       meta: {
-        isPublic: true
-      }
+        isPublic: true,
+      },
     },
     {
       path: '/login',
       name: 'LoginPage',
       component: LoginPage,
       meta: {
-        isPublic: true
-      }
+        isPublic: true,
+      },
     },
     {
       path: '/user/:user_id',
@@ -47,16 +47,16 @@ const router =  new Router({
       path: '/search',
       name: 'SearchPage',
       component: SearchPage,
-    }
-  ]
-})
+    },
+  ],
+});
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(page => page.meta.isPublic) || Store.state.token) {
-    next()
+  if (to.matched.some((page) => page.meta.isPublic) || Store.state.token) {
+    next();
   } else {
-    next('/login')
+    next('/login');
   }
-})
+});
 
-export default router
+export default router;

@@ -3,7 +3,7 @@ const mutations = {
     state.token = token;
   },
   deleteToken(state) {
-    state.token = "";
+    state.token = '';
   },
   setUser(state, user) {
     state.user = user;

@@ -1,9 +1,9 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import createPersistedState from "vuex-persistedstate";
-import state from "./state";
-import mutations from "./mutations";
-import getters from "./getters";
+import Vue from 'vue';
+import Vuex from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
+import state from './state';
+import mutations from './mutations';
+import getters from './getters';
 
 Vue.use(Vuex);
 

@@ -34,38 +34,38 @@
 </template>
 
 <script>
-import firebase from "firebase";
-import axios from "axios";
+import firebase from 'firebase';
+import axios from 'axios';
 
 export default {
   data: () => ({
     valid: true,
-    password: "",
+    password: '',
     passwordRules: [
-      (v) => !!v || "Password is required",
-      (v) => (v && v.length >= 6) || "Name must be more than 6 characters",
+      (v) => !!v || 'Password is required',
+      (v) => (v && v.length >= 6) || 'Name must be more than 6 characters',
     ],
-    email: "",
+    email: '',
     emailRules: [
-      (v) => !!v || "E-mail is required",
-      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+      (v) => !!v || 'E-mail is required',
+      (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
   }),
   methods: {
     async handleSubmit() {
-      const url = process.env.VUE_APP_HOST + "/api/login";
+      const url = process.env.VUE_APP_HOST + '/api/login';
       const params = new FormData();
-      params.append("email", this.email);
-      params.append("password", this.password);
+      params.append('email', this.email);
+      params.append('password', this.password);
 
       const result = await firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password);
       const token = await result.user.getIdToken();
-      this.$store.commit("setToken", token);
+      this.$store.commit('setToken', token);
 
       const res = await axios.post(url, params);
-      this.$store.commit("setUser", res.data.user);
+      this.$store.commit('setUser', res.data.user);
 
       window.location.href = process.env.VUE_APP_FRONT;
     },

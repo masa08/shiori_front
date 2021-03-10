@@ -39,12 +39,12 @@
 </template>
 
 <script>
-import axios from "axios";
-import camelcaseKeys from "camelcase-keys";
-import ShowSentence from "../organisms/ShowSentence";
+import axios from 'axios';
+import camelcaseKeys from 'camelcase-keys';
+import ShowSentence from '../organisms/ShowSentence';
 
 export default {
-  name: "UserPage",
+  name: 'UserPage',
   data: () => ({
     user: {},
     sentences: {},

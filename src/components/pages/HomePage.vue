@@ -105,14 +105,14 @@
 </template>
 
 <script>
-import axios from "axios";
-import camelcaseKeys from "camelcase-keys";
-import MainImage from "../organisms/MainImage";
-import Lists from "../organisms/Lists";
-import ShowSentence from "../organisms/ShowSentence";
+import axios from 'axios';
+import camelcaseKeys from 'camelcase-keys';
+import MainImage from '../organisms/MainImage';
+import Lists from '../organisms/Lists';
+import ShowSentence from '../organisms/ShowSentence';
 
 export default {
-  name: "HomePage",
+  name: 'HomePage',
   components: {
     MainImage,
     Lists,
@@ -123,8 +123,8 @@ export default {
     sentences: [],
   }),
   async mounted() {
-    const bookUrl = process.env.VUE_APP_HOST + "/api/book";
-    const sentenceUrl = process.env.VUE_APP_HOST + "/api/sentence";
+    const bookUrl = process.env.VUE_APP_HOST + '/api/book';
+    const sentenceUrl = process.env.VUE_APP_HOST + '/api/sentence';
 
     try {
       const bookRes = await axios.get(bookUrl);

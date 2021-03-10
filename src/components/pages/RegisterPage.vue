@@ -40,46 +40,46 @@
 </template>
 
 <script>
-import firebase from "firebase";
-import axios from "axios";
+import firebase from 'firebase';
+import axios from 'axios';
 
 export default {
   data: () => ({
-    name: "",
+    name: '',
     valid: true,
-    nameRules: [(v) => !!v || "name is required"],
-    password: "",
+    nameRules: [(v) => !!v || 'name is required'],
+    password: '',
     passwordRules: [
-      (v) => !!v || "Password is required",
-      (v) => (v && v.length >= 6) || "Password must be more than 6 characters",
+      (v) => !!v || 'Password is required',
+      (v) => (v && v.length >= 6) || 'Password must be more than 6 characters',
     ],
-    email: "",
+    email: '',
     emailRules: [
-      (v) => !!v || "E-mail is required",
-      (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+      (v) => !!v || 'E-mail is required',
+      (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
   }),
   methods: {
     async signUp() {
-      const url = process.env.VUE_APP_HOST + "/api/users";
+      const url = process.env.VUE_APP_HOST + '/api/users';
       const params = new FormData();
-      params.append("name", this.name);
-      params.append("email", this.email);
-      params.append("password", this.password);
+      params.append('name', this.name);
+      params.append('email', this.email);
+      params.append('password', this.password);
 
       try {
         const result = await firebase
           .auth()
           .createUserWithEmailAndPassword(this.email, this.password);
         const token = await result.user.getIdToken();
-        this.$store.commit("setToken", token);
+        this.$store.commit('setToken', token);
       } catch (e) {
         alert(e);
       }
 
       try {
         const res = await axios.post(url, params);
-        this.$store.commit("setUser", res.data.user);
+        this.$store.commit('setUser', res.data.user);
       } catch (e) {
         alert(e);
       }

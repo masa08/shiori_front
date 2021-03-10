@@ -47,15 +47,15 @@
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "RegisterSentence",
+  name: 'RegisterSentence',
   data: () => ({
-    sentence: "",
+    sentence: '',
     dialog: false,
   }),
-  props: ["item"],
+  props: ['item'],
   computed: {
     user() {
       return this.$store.getters.getUser;
@@ -63,25 +63,25 @@ export default {
   },
   methods: {
     async handleSubmit() {
-      const url = process.env.VUE_APP_HOST + "/api/sentence";
+      const url = process.env.VUE_APP_HOST + '/api/sentence';
       const params = new FormData();
       const user = this.user;
-      params.append("user_id", user.id);
-      params.append("title", this.item.title);
-      params.append("isbn", this.item.isbn);
-      params.append("author", this.item.author);
-      params.append("publisherName", this.item.publisherName);
-      params.append("itemCaption", this.item.itemCaption);
-      params.append("salesDate", this.item.salesDate);
-      params.append("largeImageUrl", this.item.largeImageUrl);
-      params.append("sentence", this.sentence);
+      params.append('user_id', user.id);
+      params.append('title', this.item.title);
+      params.append('isbn', this.item.isbn);
+      params.append('author', this.item.author);
+      params.append('publisherName', this.item.publisherName);
+      params.append('itemCaption', this.item.itemCaption);
+      params.append('salesDate', this.item.salesDate);
+      params.append('largeImageUrl', this.item.largeImageUrl);
+      params.append('sentence', this.sentence);
 
       try {
-        const res = await axios.post(url, params);
+        await axios.post(url, params);
         this.dialog = false;
-        window.location.href = process.env.VUE_APP_FRONT + "/user/" + user.id;
+        window.location.href = process.env.VUE_APP_FRONT + '/user/' + user.id;
       } catch (e) {
-        alert("必要項目を全て埋めてください。");
+        alert('必要項目を全て埋めてください。');
       }
     },
   },

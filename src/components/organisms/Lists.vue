@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import List from "../molecules/List";
+import List from '../molecules/List';
 
 export default {
-  name: "Lists",
+  name: 'Lists',
   components: {
     List,
   },
-  props: ["items"],
+  props: ['items'],
 };
 </script>

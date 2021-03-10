@@ -25,16 +25,16 @@
 </template>
 
 <script>
-import axios from "axios";
-import Lists from "../organisms/Lists";
+import axios from 'axios';
+import Lists from '../organisms/Lists';
 
 export default {
-  name: "SearchPage",
+  name: 'SearchPage',
   components: {
     Lists,
   },
   data: () => ({
-    keyword: "",
+    keyword: '',
     books: [],
   }),
   methods: {

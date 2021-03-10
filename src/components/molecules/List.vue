@@ -16,13 +16,13 @@
 </template>
 
 <script>
-import RegisterSentence from "../organisms/RegisterSentence";
+import RegisterSentence from '../organisms/RegisterSentence';
 
 export default {
-  name: "Lists",
+  name: 'Lists',
   components: {
     RegisterSentence,
   },
-  props: ["item"],
+  props: ['item'],
 };
 </script>

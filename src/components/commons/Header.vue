@@ -69,10 +69,10 @@
 </template>
 
 <script>
-import firebase from "firebase";
+import firebase from 'firebase';
 
 export default {
-  name: "Header",
+  name: 'Header',
 
   data: () => ({
     drawer: false,
@@ -92,9 +92,9 @@ export default {
     async logout() {
       try {
         await firebase.auth().signOut();
-        this.$store.commit("deleteToken");
+        this.$store.commit('deleteToken');
         window.location.href = process.env.VUE_APP_FRONT;
-      } catch {
+      } catch (e) {
         alert(e);
       }
     },
