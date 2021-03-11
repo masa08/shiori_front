@@ -12,10 +12,8 @@
           <v-container>
             <v-row>
               <v-col cols="1"></v-col>
-              <v-col cols="5">
+              <v-col cols="10">
                 <v-img :src="item.largeImageUrl" width="100%"></v-img>
-              </v-col>
-              <v-col cols="5">
                 <h3>タイトル</h3>
                 <p>{{ item.title }}</p>
                 <h3>著者</h3>
