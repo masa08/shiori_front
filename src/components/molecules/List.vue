@@ -16,6 +16,7 @@
 </template>
 
 <script>
+// TODO: molecures層からorganismを参照するのはよくないので修正する
 import RegisterSentence from '../organisms/RegisterSentence';
 
 export default {
