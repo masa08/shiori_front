@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import { getBookFromRakuten } from '../../api/rakuten';
 import Lists from '../organisms/Lists';
 
 export default {
@@ -39,16 +39,8 @@ export default {
   }),
   methods: {
     async handleSubmit() {
-      const keyword = this.keyword;
-      const applicationId = process.env.VUE_APP_RAKUTEN_KEY;
-      const rakutenApi = `${process.env.VUE_APP_RAKUTEN_HOST}
-                          ?format=json
-                          &title=${keyword}
-                          &applicationId=${applicationId}`;
-
       try {
-        const res = await axios.get(rakutenApi);
-        const books = res.data;
+        const books = await getBookFromRakuten(this.keyword);
         books.Items.map((book) => {
           this.books.push(book.Item);
         });

@@ -34,8 +34,7 @@
 </template>
 
 <script>
-import firebase from 'firebase';
-import axios from 'axios';
+import { login } from '../../lib/auth';
 
 export default {
   data: () => ({
@@ -53,19 +52,9 @@ export default {
   }),
   methods: {
     async handleSubmit() {
-      const url = process.env.VUE_APP_HOST + '/api/login';
-      const params = new FormData();
-      params.append('email', this.email);
-      params.append('password', this.password);
-
-      const result = await firebase
-        .auth()
-        .signInWithEmailAndPassword(this.email, this.password);
-      const token = await result.user.getIdToken();
+      const { token, user } = await login(this.email, this.password);
       this.$store.commit('setToken', token);
-
-      const res = await axios.post(url, params);
-      this.$store.commit('setUser', res.data.user);
+      this.$store.commit('setUser', user);
 
       window.location.href = process.env.VUE_APP_FRONT;
     },

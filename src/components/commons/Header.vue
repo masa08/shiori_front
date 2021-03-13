@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import { logout } from '../../lib/auth';
 
 export default {
   name: 'Header',
@@ -91,7 +91,7 @@ export default {
   methods: {
     async logout() {
       try {
-        await firebase.auth().signOut();
+        await logout();
         this.$store.commit('deleteToken');
         window.location.href = process.env.VUE_APP_FRONT;
       } catch (e) {

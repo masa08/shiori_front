@@ -105,8 +105,8 @@
 </template>
 
 <script>
-import axios from 'axios';
-import camelcaseKeys from 'camelcase-keys';
+import { getBooks } from '../../api/book';
+import { getSentences } from '../../api/sentence';
 import MainImage from '../organisms/MainImage';
 import Lists from '../organisms/Lists';
 import ShowSentence from '../organisms/ShowSentence';
@@ -123,20 +123,15 @@ export default {
     sentences: [],
   }),
   async mounted() {
-    const bookUrl = process.env.VUE_APP_HOST + '/api/book';
-    const sentenceUrl = process.env.VUE_APP_HOST + '/api/sentence';
-
     try {
-      const bookRes = await axios.get(bookUrl);
-      const books = camelcaseKeys(bookRes.data.books);
+      const books = await getBooks();
       this.books = books;
     } catch (e) {
       alert(e);
     }
 
     try {
-      const sentenceRes = await axios.get(sentenceUrl);
-      const sentences = camelcaseKeys(sentenceRes.data.sentences);
+      const sentences = await getSentences();
       this.sentences = sentences;
     } catch (e) {
       alert(e);

@@ -39,8 +39,8 @@
 </template>
 
 <script>
-import axios from 'axios';
-import camelcaseKeys from 'camelcase-keys';
+import { getUserById } from '../../api/user';
+import { getSentencesByUserId } from '../../api/sentence';
 import ShowSentence from '../organisms/ShowSentence';
 
 export default {
@@ -58,23 +58,16 @@ export default {
     },
   },
   async mounted() {
-    const user_id = this.getUser.id;
-    const url = process.env.VUE_APP_HOST + `/api/users/${user_id}`;
-    const sentenceUrl =
-      process.env.VUE_APP_HOST + `/api/sentence?user_id=${user_id}`;
-
     try {
-      const userRes = await axios.get(url);
-      const user = userRes.data.user;
+      const user = await getUserById(this.getUser.id);
       this.user = user;
     } catch (e) {
       alert(e);
     }
 
     try {
-      const sentenceRes = await axios.get(sentenceUrl);
-      const sentence = camelcaseKeys(sentenceRes.data.sentences);
-      this.sentences = sentence;
+      const sentences = await getSentencesByUserId(this.getUser.id);
+      this.sentences = sentences;
     } catch (e) {
       alert(e);
     }

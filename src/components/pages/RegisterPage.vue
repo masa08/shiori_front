@@ -40,8 +40,7 @@
 </template>
 
 <script>
-import firebase from 'firebase';
-import axios from 'axios';
+import { register } from '../../lib/auth';
 
 export default {
   data: () => ({
@@ -61,28 +60,14 @@ export default {
   }),
   methods: {
     async signUp() {
-      const url = process.env.VUE_APP_HOST + '/api/users';
-      const params = new FormData();
-      params.append('name', this.name);
-      params.append('email', this.email);
-      params.append('password', this.password);
+      const { token, user } = await register(
+        this.name,
+        this.email,
+        this.password
+      );
 
-      try {
-        const result = await firebase
-          .auth()
-          .createUserWithEmailAndPassword(this.email, this.password);
-        const token = await result.user.getIdToken();
-        this.$store.commit('setToken', token);
-      } catch (e) {
-        alert(e);
-      }
-
-      try {
-        const res = await axios.post(url, params);
-        this.$store.commit('setUser', res.data.user);
-      } catch (e) {
-        alert(e);
-      }
+      this.$store.commit('setToken', token);
+      this.$store.commit('setUser', user);
 
       window.location.href = process.env.VUE_APP_FRONT;
     },
