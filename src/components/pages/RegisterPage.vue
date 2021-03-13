@@ -60,16 +60,20 @@ export default {
   }),
   methods: {
     async signUp() {
-      const { token, user } = await register(
-        this.name,
-        this.email,
-        this.password
-      );
+      try {
+        const { token, user } = await register(
+          this.name,
+          this.email,
+          this.password
+        );
 
-      this.$store.commit('setToken', token);
-      this.$store.commit('setUser', user);
+        this.$store.commit('setToken', token);
+        this.$store.commit('setUser', user);
 
-      window.location.href = process.env.VUE_APP_FRONT;
+        window.location.href = process.env.VUE_APP_FRONT;
+      } catch (e) {
+        alert(e);
+      }
     },
   },
 };

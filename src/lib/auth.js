@@ -24,12 +24,12 @@ const register = async (name, email, password) => {
 };
 
 const login = async (email, password) => {
-  try {
-    const url = process.env.VUE_APP_HOST + '/api/login';
-    const params = new FormData();
-    params.append('email', email);
-    params.append('password', password);
+  const url = process.env.VUE_APP_HOST + '/api/login';
+  const params = new FormData();
+  params.append('email', email);
+  params.append('password', password);
 
+  try {
     const result = await firebase
       .auth()
       .signInWithEmailAndPassword(email, password);

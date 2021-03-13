@@ -52,11 +52,15 @@ export default {
   }),
   methods: {
     async handleSubmit() {
-      const { token, user } = await login(this.email, this.password);
-      this.$store.commit('setToken', token);
-      this.$store.commit('setUser', user);
+      try {
+        const { token, user } = await login(this.email, this.password);
+        this.$store.commit('setToken', token);
+        this.$store.commit('setUser', user);
 
-      window.location.href = process.env.VUE_APP_FRONT;
+        window.location.href = process.env.VUE_APP_FRONT;
+      } catch (e) {
+        alert(e);
+      }
     },
   },
 };

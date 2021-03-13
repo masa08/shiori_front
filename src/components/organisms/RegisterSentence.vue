@@ -79,7 +79,7 @@ export default {
         this.dialog = false;
         window.location.href = process.env.VUE_APP_FRONT + '/user/' + user.id;
       } catch (e) {
-        alert('必要項目を全て埋めてください。');
+        alert(e);
       }
     },
   },
