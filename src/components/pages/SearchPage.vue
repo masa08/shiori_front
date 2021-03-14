@@ -39,6 +39,11 @@ export default {
   }),
   methods: {
     async handleSubmit() {
+      if (this.keyword == '') {
+        alert('検索ワードを入力してください。');
+        return;
+      }
+
       try {
         this.books = [];
         const books = await getBookFromRakuten(this.keyword);

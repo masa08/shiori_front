@@ -61,6 +61,11 @@ export default {
   },
   methods: {
     async handleSubmit() {
+      if (this.sentence == '') {
+        alert('文章を入力してください');
+        return;
+      }
+
       const url = process.env.VUE_APP_HOST + '/api/sentence';
       const params = new FormData();
       const user = this.user;
