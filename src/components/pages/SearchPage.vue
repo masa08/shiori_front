@@ -40,6 +40,7 @@ export default {
   methods: {
     async handleSubmit() {
       try {
+        this.books = [];
         const books = await getBookFromRakuten(this.keyword);
         books.Items.map((book) => {
           this.books.push(book.Item);
