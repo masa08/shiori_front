@@ -1,10 +1,16 @@
 <template>
   <div>
     <v-app-bar app color="#fff">
-      <div class="d-flex align-center">
-        <h1>
-          <router-link to="/" style="color: #18bc9c">SHIORI</router-link>
-        </h1>
+      <div class="d-flex align-center" style="padding-top: 10px">
+        <router-link to="/">
+          <h1>
+            <img
+              src="../../../assets/shiori.png"
+              alt="shiori"
+              style="width: 150px"
+            />
+          </h1>
+        </router-link>
       </div>
       <v-spacer></v-spacer>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
