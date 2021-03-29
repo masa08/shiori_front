@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 import axios from 'axios';
 
-const register = async (name, email, password) => {
+const register = async (name: string, email: string, password: string) => {
   const url = process.env.VUE_APP_HOST + '/api/users';
   const params = new FormData();
   params.append('name', name);
@@ -12,6 +12,9 @@ const register = async (name, email, password) => {
     const result = await firebase
       .auth()
       .createUserWithEmailAndPassword(email, password);
+    if (result.user == null) {
+      return;
+    }
     const token = await result.user.getIdToken();
 
     const res = await axios.post(url, params);
@@ -23,7 +26,7 @@ const register = async (name, email, password) => {
   }
 };
 
-const login = async (email, password) => {
+const login = async (email: string, password: string) => {
   const url = process.env.VUE_APP_HOST + '/api/login';
   const params = new FormData();
   params.append('email', email);
@@ -33,6 +36,9 @@ const login = async (email, password) => {
     const result = await firebase
       .auth()
       .signInWithEmailAndPassword(email, password);
+    if (result.user == null) {
+      return;
+    }
     const token = await result.user.getIdToken();
 
     const res = await axios.post(url, params);

@@ -24,7 +24,7 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
 import { getBookFromRakuten } from '../../api/rakuten';
 import Lists from '../organisms/Lists';
 
@@ -38,7 +38,7 @@ export default {
     books: [],
   }),
   methods: {
-    async handleSubmit() {
+    async handleSubmit(): void {
       if (this.keyword == '') {
         alert('検索ワードを入力してください。');
         return;
