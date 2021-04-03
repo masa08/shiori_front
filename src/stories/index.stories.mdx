@@ -1,22 +1,22 @@
 import { Meta, ArgsTable, Story, Canvas } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions'
-import { linkTo } from '@storybook/addon-links'
-import MyButton from '../components/MyButton.vue';
+import { action } from '@storybook/addon-actions';
+import { linkTo } from '@storybook/addon-links';
+import Button from '../components/atoms/Button.vue';
 
-<Meta title="MDX|Button" component={MyButton} />
+<Meta title="MDX|Button" component={Button} />
 
 # Button
 
-<ArgsTable of={MyButton} />
+<ArgsTable of={Button} />
 
 This is a simple button with some text in it.
 
 <Canvas>
   <Story name="With Text">
     {{
-        components: { MyButton },
-        template: '<my-button @click="action">Hello Button</my-button>',
-        methods: { action: action("clicked") }
+      components: { Button },
+      template: '<my-button @click="action">Hello Button</my-button>',
+      methods: { action: action('clicked') },
     }}
   </Story>
 </Canvas>
@@ -24,7 +24,7 @@ This is a simple button with some text in it.
 You can perform some action when the button is clicked.
 
 <Canvas>
-  <RMyButton onClick={linkTo('Button', 'With Some Emoji')}>With JSX</RMyButton>
+  <RButton onClick={linkTo('Button', 'With Some Emoji')}>With JSX</RButton>
 </Canvas>
 
 You can even have Emoji in the button.
@@ -32,8 +32,8 @@ You can even have Emoji in the button.
 <Canvas>
   <Story name="With Some Emoji">
     {{
-        components: { MyButton },
-        template: '<my-button>😀 😎 👍 💯</my-button>'
+      components: { Button },
+      template: '<my-button>😀 😎 👍 💯</my-button>',
     }}
   </Story>
 </Canvas>
