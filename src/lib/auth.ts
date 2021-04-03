@@ -1,7 +1,12 @@
 import firebase from 'firebase';
 import axios from 'axios';
 
-const register = async (name: string, email: string, password: string) => {
+// TODO: userの型を定義する
+const register = async (
+  name: string,
+  email: string,
+  password: string
+): Promise<any> => {
   const url = process.env.VUE_APP_HOST + '/api/users';
   const params = new FormData();
   params.append('name', name);
@@ -26,7 +31,8 @@ const register = async (name: string, email: string, password: string) => {
   }
 };
 
-const login = async (email: string, password: string) => {
+// TODO: userの型を定義する
+const login = async (email: string, password: string): Promise<any> => {
   const url = process.env.VUE_APP_HOST + '/api/login';
   const params = new FormData();
   params.append('email', email);
@@ -50,7 +56,7 @@ const login = async (email: string, password: string) => {
   }
 };
 
-const logout = async () => {
+const logout = async (): Promise<void> => {
   try {
     await firebase.auth().signOut();
   } catch (e) {

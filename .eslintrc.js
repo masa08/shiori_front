@@ -16,4 +16,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['vue'],
+  rules: {
+    quotes: ['warn', 'single'],
+  },
 };

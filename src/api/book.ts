@@ -1,7 +1,8 @@
 import axios from 'axios';
 import camelcaseKeys from 'camelcase-keys';
 
-const getBooks = async () => {
+// TODO: bookの型を定義する
+const getBooks = async (): Promise<any> => {
   const bookUrl = process.env.VUE_APP_HOST + '/api/book';
 
   try {

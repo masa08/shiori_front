@@ -1,8 +1,10 @@
+import { State } from './state';
+
 const getters = {
-  getUser(state) {
+  getUser(state: State) {
     return state.user;
   },
-  getSearchResult(state) {
+  getSearchResult(state: State) {
     return state.searchResult;
   },
 };

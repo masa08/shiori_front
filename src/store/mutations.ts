@@ -1,14 +1,18 @@
+import { State } from './state';
+
 const mutations = {
-  setToken(state, token) {
+  setToken(state: State, token: string) {
     state.token = token;
   },
-  deleteToken(state) {
+  deleteToken(state: State) {
     state.token = '';
   },
-  setUser(state, user) {
+  // TODO: userの型を定義する
+  setUser(state: State, user: any) {
     state.user = user;
   },
-  setSearchResult(state, result) {
+  // TODO: resultの型を定義する
+  setSearchResult(state: State, result: any) {
     state.searchResult.push(result);
   },
 };

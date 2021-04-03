@@ -1,7 +1,8 @@
 import axios from 'axios';
 import camelcaseKeys from 'camelcase-keys';
 
-const getSentences = async () => {
+// TODO: sentenceの型を定義する
+const getSentences = async (): Promise<any> => {
   const sentenceUrl = process.env.VUE_APP_HOST + '/api/sentence';
 
   try {
@@ -14,7 +15,8 @@ const getSentences = async () => {
   }
 };
 
-const getSentencesByUserId = async (userId) => {
+// TODO: sentenceの型を定義する
+const getSentencesByUserId = async (userId: number): Promise<any> => {
   const sentenceUrl =
     process.env.VUE_APP_HOST + `/api/sentence?user_id=${userId}`;
 

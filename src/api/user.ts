@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const getUserById = async (userId) => {
+// TODO: userの型を定義する
+const getUserById = async (userId: number): Promise<any> => {
   const url = process.env.VUE_APP_HOST + `/api/users/${userId}`;
 
   try {

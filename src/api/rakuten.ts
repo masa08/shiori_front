@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const getBookFromRakuten = async (keyword) => {
+// TODO: bookの型を定義する
+const getBookFromRakuten = async (keyword: string): Promise<any> => {
   const applicationId = process.env.VUE_APP_RAKUTEN_KEY;
   const rakutenApi = `${process.env.VUE_APP_RAKUTEN_HOST}
                           ?format=json
