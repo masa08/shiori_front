@@ -4,7 +4,7 @@ export default {
   title: 'Atoms',
 };
 
-export const withJSX = () => ({
+export const ButtonComponents = () => ({
   render() {
     return <Button title="button" btnColor="success" />;
   },
