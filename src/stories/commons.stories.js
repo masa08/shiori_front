@@ -1,11 +1,11 @@
-import Button from '../components/atoms/Button.vue';
+import Footer from '../components/commons/Footer.vue';
 
 export default {
   title: 'Commons',
 };
 
-export const withJSX = () => ({
+export const FooterComponents = () => ({
   render() {
-    return <Button title="button" btnColor="success" />;
+    return <Footer />;
   },
 });

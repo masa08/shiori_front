@@ -9,7 +9,7 @@
           </div>
         </v-col>
       </v-row>
-      <div v-if="this.$store.state.token"></div>
+      <div v-if="getToken"></div>
       <div v-else>
         <v-row>
           <v-col class="main-image__right" cols="6">
@@ -46,7 +46,11 @@ export default {
   components: {
     Button,
   },
-  data: () => ({}),
+  conputed: {
+    getToken() {
+      return this.$store.state.token ?? null;
+    },
+  },
 };
 </script>
 

@@ -4,7 +4,7 @@ export default {
   title: 'Organisms',
 };
 
-export const withJSX = () => ({
+export const MainImageComponents = () => ({
   render() {
     return <MainImage />;
   },
